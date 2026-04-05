@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Smartgo — India's most trusted online store for electronics, fashion, audio & more. Great prices, fast delivery!">
+  <title>Smartgo — Online Shopping India | Electronics, Fashion & More</title>
+  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛍</text></svg>">
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="header-top">
+      <div class="header-inner">
+        <a href="#" class="logo-wrap" onclick="filterCat('all'); return false;">
+          <div class="logo-icon-svg">
+            <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="48" fill="white" fill-opacity="0.15" />
+              <path d="M75 35L50 20L25 35V65L50 80L75 65V35Z" stroke="white" stroke-width="6" stroke-linejoin="round" />
+              <path d="M50 30V70M30 45L50 55L70 45" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M45 20L55 20M50 15V25" stroke="#ff9f00" stroke-width="4" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="logo-text-stack">
+            <span class="logo-name">Smart<span class="logo-highlight">go</span></span>
+            <span class="logo-sub">Explore Plus <span class="sparkle-ico">✦</span></span>
+          </div>
+        </a>
+
+        <div class="search-wrap">
+          <div class="search-box">
+            <span class="search-ico">🔍</span>
+            <input type="text" id="searchInput" class="search-inp" placeholder="Search for Products, Brands and More"
+              autocomplete="off">
+            <button class="search-btn" id="searchBtn">Search</button>
+          </div>
+          <div class="search-suggestions" id="searchSuggestions"></div>
+        </div>
+
+        <div class="hdr-actions">
+          <div class="hdr-btn more-dropdown-wrap" id="moreBtn">
+            <svg class="hdr-svg-ico" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="#ff9f00" stroke="#ff9f00" stroke-width="2" stroke-linejoin="round"/>
+              <circle cx="12" cy="11" r="2" fill="white" fill-opacity="0.5"/>
+            </svg>
+            <span class="hdr-btn-label">More <small>▾</small></span>
+            <div class="more-menu" id="moreDropdown">
+              <a href="#" onclick="openNotifications(event)">🔔 Notifications</a>
+              <a href="#" onclick="showToast('Support: 1800-SMARTGO')">🎧 Care</a>
+              <a href="#" onclick="triggerDownload()">📥 App</a>
+            </div>
+          </div>
+          <button class="hdr-btn cart-hdr-btn" id="cartBtn" onclick="openCart()">
+            <svg class="hdr-svg-ico" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 2L3 6V20C3 20.5304 3.21071 21.0391 3.58579 21.4142C3.96086 21.7893 4.46957 22 5 22H19C19.5304 22 20.0391 21.7893 20.4142 21.4142C20.7893 21.0391 21 20.5304 21 20V6L18 2H6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16 10C16 11.0609 15.5786 12.0783 14.8284 12.8284C14.0783 13.5786 13.0609 14 12 14C10.9391 14 9.92172 13.5786 9.17157 12.8284C8.42143 12.0783 8 11.0609 8 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="hdr-btn-count" id="cartBadge">0</span>
+          </button>
+          <div class="user-menu-wrap" id="userMenuWrap">
+            <button class="hdr-btn login-trigger-btn" id="loginBtn">
+              <svg class="hdr-svg-ico" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="hdr-btn-label" id="userNameLabel">Login</span>
+              <small>▾</small>
+            </button>
+            <div class="user-dropdown" id="userDropdown">
+              <a href="#" onclick="openOrders(event)">📦 My Orders</a>
+              <a href="#" onclick="openProfile(event)">👤 Profile</a>
+              <a href="#" onclick="openWishlist()">❤️ Wishlist</a>
+              <a href="#" onclick="logoutUser(event)">🚪 Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- PROMO TICKER -->
+    <div class="promo-ticker">
+      <div class="ticker-track">
+        <span>🔥 Big Sale — Up to 50% Off on Electronics</span>
+        <span>🚚 Free Delivery on orders above ₹499</span>
+        <span>🪙 Earn Smartgo Coins on every order</span>
+        <span>🎁 Use code <strong>SMART10</strong> for 10% off your first order</span>
+        <span>⚡ Flash Sale ends at midnight — Don't miss it!</span>
+        <span>📦 Easy 30-day returns · 100% Authentic products</span>
+        <span>🏆 4.8★ rated by 2 lakh+ happy customers</span>
+        <span>🔥 Big Sale — Up to 50% Off on Electronics</span>
+        <span>🚚 Free Delivery on orders above ₹499</span>
+        <span>🪙 Earn Smartgo Coins on every order</span>
+        <span>🎁 Use code <strong>SMART10</strong> for 10% off your first order</span>
+        <span>⚡ Flash Sale ends at midnight — Don't miss it!</span>
+        <span>📦 Easy 30-day returns · 100% Authentic products</span>
+        <span>🏆 4.8★ rated by 2 lakh+ happy customers</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main class="page-wrap">
+
+    <!-- QUICK CATEGORY SCROLL ROW -->
+    <section class="quick-cats-section">
+      <div class="quick-cats-row" id="quickCatsRow">
+        <div class="qcat" onclick="filterCat('all')" data-cat="all">
+          <div class="qcat-ico qcat-all">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12L12 3L21 12M5 10V20H10V14H14V20H19V10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span>For You</span>
+        </div>
+        <div class="qcat" onclick="filterCat('electronics')" data-cat="electronics">
+          <div class="qcat-ico qcat-elec">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="2" width="14" height="20" rx="3" stroke="white" stroke-width="2"/><path d="M12 18H12.01" stroke="white" stroke-width="3" stroke-linecap="round"/></svg>
+          </div>
+          <span>Mobiles</span>
+        </div>
+        <div class="qcat" onclick="filterCat('tech')" data-cat="tech">
+          <div class="qcat-ico qcat-tech">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4" width="20" height="12" rx="2" stroke="white" stroke-width="2"/><path d="M2 16H22V18C22 19.1046 21.1046 20 20 20H4C2.89543 20 2 19.1046 2 18V16Z" fill="white" fill-opacity="0.2" stroke="white" stroke-width="2"/></svg>
+          </div>
+          <span>Laptops</span>
+        </div>
+        <div class="qcat" onclick="filterCat('audio')" data-cat="audio">
+          <div class="qcat-ico qcat-audio">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12V11C3 7.68629 5.68629 5 9 5H15C18.3137 5 21 7.68629 21 11V12" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="5" cy="15" r="3" fill="white" fill-opacity="0.3" stroke="white" stroke-width="2"/><circle cx="19" cy="15" r="3" fill="white" fill-opacity="0.3" stroke="white" stroke-width="2"/></svg>
+          </div>
+          <span>Audio</span>
+        </div>
+        <div class="qcat" onclick="filterCat('fitness')" data-cat="fitness">
+          <div class="qcat-ico qcat-fit">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6Z" stroke="white" stroke-width="2"/><path d="M12 2V6M12 18V22M18 12H22M2 12H6" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <span>Fitness</span>
+        </div>
+        <div class="qcat" onclick="filterCat('fashion')" data-cat="fashion">
+          <div class="qcat-ico qcat-fashion">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 4C12 4 4 12 4 15C4 18 7 21 12 21C17 21 20 18 20 15C20 12 12 4 12 4Z" stroke="white" stroke-width="2"/><path d="M12 4L12 8" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <span>Fashion</span>
+        </div>
+        <div class="qcat" onclick="filterCat('bags')" data-cat="bags">
+          <div class="qcat-ico qcat-bags">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="8" width="14" height="12" rx="2" stroke="white" stroke-width="2"/><path d="M9 8V6C9 4.34315 10.3431 3 12 3C13.6569 3 15 4.34315 15 6V8" stroke="white" stroke-width="2"/></svg>
+          </div>
+          <span>Bags</span>
+        </div>
+        <div class="qcat" onclick="filterCat('photography')" data-cat="photography">
+          <div class="qcat-ico qcat-cam">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="6" width="18" height="13" rx="2" stroke="white" stroke-width="2"/><circle cx="12" cy="12.5" r="3.5" stroke="white" stroke-width="2"/><path d="M7 6V4H11V6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span>Camera</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- HERO BANNERS -->
+    <section class="hero-grid">
+      <div class="hero-main" id="heroCarouselContainer">
+        <!-- Carousel Content populated by JS -->
+        <div id="heroCarouselSlide" class="hero-slide-content"></div>
+
+        <!-- Controls -->
+        <button class="hero-nav prev" id="heroPrev">❮</button>
+        <button class="hero-nav next" id="heroNext">❯</button>
+        <div class="hero-dots" id="heroDots"></div>
+      </div>
+      <div class="hero-side">
+        <div id="sideBanner1" class="hero-card slide-card" style="cursor: pointer;"
+          onclick="openQuickView(sideSlides1[side1Index].productId)">
+          <!-- JS populates -->
+        </div>
+        <div id="sideBanner2" class="hero-card slide-card" style="cursor: pointer;"
+          onclick="openQuickView(sideSlides2[side2Index].productId)">
+          <!-- JS populates -->
+        </div>
+      </div>
+    </section>
+
+    <!-- DEALS OF THE DAY -->
+    <section class="white-box" id="products">
+      <div class="box-header">
+        <div class="box-title-grp">
+          <h2 class="box-title">Deals of the Day</h2>
+          <span class="deal-badge">⚡ Limited Time</span>
+        </div>
+        <div class="timer-wrap" id="dealTimer">
+          <span class="timer-lbl">Ends in</span>
+          <div class="timer-blks">
+            <div class="t-blk"><span id="tH">08</span><small>HRS</small></div>
+            <span class="t-sep">:</span>
+            <div class="t-blk"><span id="tM">45</span><small>MIN</small></div>
+            <span class="t-sep">:</span>
+            <div class="t-blk"><span id="tS">00</span><small>SEC</small></div>
+          </div>
+        </div>
+        <button class="view-all" onclick="viewAllDeals(event)">View All →</button>
+      </div>
+      <div class="deals-container">
+        <div class="deals-row rotate-left" id="dealsGrid"></div>
+        <div class="deals-row rotate-right" id="dealsGrid2"></div>
+      </div>
+    </section>
+
+    <!-- FEATURED PREMIUM PRODUCTS -->
+    <section class="white-box collections-box" style="background: transparent; box-shadow: none;">
+      <div class="box-header" style="background: #fff; border-radius: 12px 12px 0 0; border-bottom: 2px solid #f0f3f8;">
+        <div class="box-title-grp">
+          <h2 class="box-title"
+            style="font-family: 'Outfit', sans-serif; font-size: 26px; font-weight: 800; color: #1a1a1a;">✨ Premium
+            Product Showcase</h2>
+          <span class="deal-badge"
+            style="background: rgba(40,116,240,0.1); padding: 5px 12px; border-radius: 20px; font-size: 11px; letter-spacing: 1px;">EXCLUSIVE
+            & HANDPICKED</span>
+        </div>
+        <button class="view-all" onclick="filterCat('all')"
+          style="border-radius: 30px; padding: 10px 20px; background: #fff; color: var(--pk-blue); border: 2px solid var(--pk-blue); transition: 0.3s; box-shadow: 0 4px 10px rgba(40,116,240,0.1);"
+          onmouseover="this.style.background='var(--pk-blue)'; this.style.color='#fff';"
+          onmouseout="this.style.background='#fff'; this.style.color='var(--pk-blue)';">Explore All →</button>
+      </div>
+      <div class="collections-grid"
+        style="background: #fff; padding: 25px; border-radius: 0 0 12px 12px;">
+
+        <!-- Summer Vibe → Links to Product 8 (Sneakers) -->
+        <div class="col-card" onclick="openQuickView(8)"
+          style="border-radius: 18px; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.2)); background: linear-gradient(160deg, rgba(0,0,0,0.05) 0%, rgba(200,30,50,0.8) 100%), url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop') center/cover; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative;"
+          onmouseover="this.style.transform='scale(1.02) translateY(-10px)'"
+          onmouseout="this.style.transform='scale(1) translateY(0)'">
+          <div class="col-hover-ov"
+            style="background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, transparent 60%); z-index: 1;"></div>
+          <div class="col-badge"
+            style="background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.4); padding: 6px 15px; font-size: 13px;">
+            🔥 Trending Item</div>
+          <div class="col-content" style="z-index: 2; width: 100%; transform: translateY(10px); transition: 0.3s;">
+            <h3 style="font-family: 'Outfit'; font-size: 32px; letter-spacing: 0.5px;">Classic Sneakers</h3>
+            <p style="font-size: 15px; font-weight: 600; opacity: 1;">Only ₹4,999 — Premium Quality</p>
+            <button class="col-btn"
+              style="background: #fff; color: #d32f2f; margin-top: 5px; box-shadow: 0 8px 15px rgba(0,0,0,0.2); padding: 12px 25px; font-size: 14px; border-radius: 8px; font-weight: 800; display: flex; align-items: center; gap: 8px;"
+              onclick="event.stopPropagation(); openQuickView(8)">View Product <span
+                style="font-size: 16px;">🛍️</span></button>
+          </div>
+        </div>
+
+        <!-- Tech Envy → Links to Product 13 (Tab S9 Ultra) -->
+        <div class="col-card" onclick="openQuickView(13)"
+          style="border-radius: 18px; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.2)); background: linear-gradient(160deg, rgba(20,40,100,0.1) 0%, rgba(10,20,80,0.9) 100%), url('https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=600&auto=format&fit=crop') center/cover; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative;"
+          onmouseover="this.style.transform='scale(1.02) translateY(-10px)'"
+          onmouseout="this.style.transform='scale(1) translateY(0)'">
+          <div class="col-hover-ov"
+            style="background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, transparent 60%); z-index: 1;"></div>
+          <div class="col-badge"
+            style="background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.4); padding: 6px 15px; font-size: 13px;">
+            💻 Elite Tablet</div>
+          <div class="col-content" style="z-index: 2; width: 100%; transform: translateY(10px); transition: 0.3s;">
+            <h3 style="font-family: 'Outfit'; font-size: 32px; letter-spacing: 0.5px;">Tab S9 Ultra</h3>
+            <p style="font-size: 15px; font-weight: 600; opacity: 1;">Amoled Display & S Pen</p>
+            <button class="col-btn"
+              style="background: #fff; color: #1a237e; margin-top: 5px; box-shadow: 0 8px 15px rgba(0,0,0,0.2); padding: 12px 25px; font-size: 14px; border-radius: 8px; font-weight: 800; display: flex; align-items: center; gap: 8px;"
+              onclick="event.stopPropagation(); openQuickView(13)">View Product <span
+                style="font-size: 16px;">🔍</span></button>
+          </div>
+        </div>
+
+        <!-- Smartgo Exclusives → Links to Product 1 (Nova Pro Headphones) -->
+        <div class="col-card" onclick="openQuickView(1)"
+          style="border-radius: 18px; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.2)); background: linear-gradient(160deg, rgba(0,0,0,0.05) 0%, rgba(60,10,100,0.9) 100%), url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop') center/cover; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative;"
+          onmouseover="this.style.transform='scale(1.02) translateY(-10px)'"
+          onmouseout="this.style.transform='scale(1) translateY(0)'">
+          <div class="col-hover-ov"
+            style="background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, transparent 60%); z-index: 1;"></div>
+          <div class="col-badge"
+            style="background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.4); padding: 6px 15px; font-size: 13px;">
+            🎧 Flagship Audio</div>
+          <div class="col-content" style="z-index: 2; width: 100%; transform: translateY(10px); transition: 0.3s;">
+            <h3 style="font-family: 'Outfit'; font-size: 32px; letter-spacing: 0.5px;">Nova Pro ANC</h3>
+            <p style="font-size: 15px; font-weight: 600; opacity: 1;">Top-tier noise cancellation</p>
+            <button class="col-btn"
+              style="background: #fff; color: #4a148c; margin-top: 5px; box-shadow: 0 8px 15px rgba(0,0,0,0.2); padding: 12px 25px; font-size: 14px; border-radius: 8px; font-weight: 800; display: flex; align-items: center; gap: 8px;"
+              onclick="event.stopPropagation(); openQuickView(1)">View Product <span
+                style="font-size: 16px;">✨</span></button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BEST SELLERS / SEARCH RESULTS WITH SIDEBAR -->
+    <section class="prod-box search-layout" id="products">
+      <!-- FILTERS SIDEBAR -->
+      <aside class="filters-sidebar"
+        style="background: linear-gradient(145deg, #ffffff, #fdfdff); border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.04); border: 1px solid rgba(224, 234, 248, 0.8); padding: 25px; align-self: start; position: sticky; top: 100px; max-height: calc(100vh - 120px); overflow-y: auto; scrollbar-width: none;">
+        <div
+          style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 2px dashed #f0f3f8; padding-bottom: 15px;">
+          <h3
+            style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 800; color: #1a1a2e; margin: 0; display: flex; align-items: center; gap: 8px;">
+            <span style="font-size:18px;">✨</span> Filters</h3>
+          <div style="display:flex; align-items:center;">
+            <button onclick="clearFilters()"
+              style="background: rgba(240,62,62,0.1); color: #f03e3e; border: none; padding: 6px 14px; border-radius: 20px; font-size: 11px; font-weight: 800; cursor: pointer; transition: 0.3s;"
+              onmouseover="this.style.background='rgba(240,62,62,0.2)'"
+              onmouseout="this.style.background='rgba(240,62,62,0.1)'">RESET ALL</button>
+            <button class="mobile-filter-close" onclick="toggleMobileFilters()" style="display:none; margin-left:15px; font-size: 22px; cursor: pointer; border: none; background: none;">✕</button>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+          <h4
+            style="font-size: 12px; font-weight: 800; color: #878787; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 15px;">
+            Categories</h4>
+          <ul id="sidebarCategories"
+            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+            <li class="f-item active" data-cat="all" onclick="filterCat('all')"><span>🏠</span> All Items</li>
+            <li class="f-item" data-cat="audio" onclick="filterCat('audio')"><span>🎧</span> Audio</li>
+            <li class="f-item" data-cat="wearables" onclick="filterCat('wearables')"><span>⌚</span> Wearables</li>
+            <li class="f-item" data-cat="electronics" onclick="filterCat('electronics')"><span>📱</span> Mobiles</li>
+            <li class="f-item" data-cat="fashion" onclick="filterCat('fashion')"><span>👗</span> Fashion</li>
+            <li class="f-item" data-cat="accessories" onclick="filterCat('accessories')"><span>🎒</span> Accessories</li>
+            <li class="f-item" data-cat="tech" onclick="filterCat('tech')"><span>💻</span> Laptops</li>
+            <li class="f-item" data-cat="photography" onclick="filterCat('photography')"><span>📷</span> Camera</li>
+          </ul>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+          <h4
+            style="font-size: 12px; font-weight: 800; color: #878787; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 15px;">
+            Price Range</h4>
+          <div
+            style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 4px; background: #f8faff; padding: 10px; border-radius: 14px; border: 1px solid #eef3fc; width: 100%; box-sizing: border-box;">
+            <select id="minPrice" onchange="applyFilters()"
+              style="width: 100%; appearance: none; background: #fff; border: 1px solid #dce8f8; padding: 10px 4px; border-radius: 10px; font-size: 12px; font-weight: 800; color: #111; cursor: pointer; outline: none; box-shadow: 0 2px 8px rgba(0,0,0,0.03); text-align: center;">
+              <option value="0">Min Price</option>
+              <option value="2000">₹2,000</option>
+              <option value="5000">₹5,000</option>
+              <option value="10000">₹10,000</option>
+            </select>
+            <span style="color:#b2c5dc; font-weight: 900; font-size: 12px;">→</span>
+            <select id="maxPrice" onchange="applyFilters()"
+              style="width: 100%; appearance: none; background: #fff; border: 1px solid #dce8f8; padding: 10px 4px; border-radius: 10px; font-size: 12px; font-weight: 800; color: #111; cursor: pointer; outline: none; box-shadow: 0 2px 8px rgba(0,0,0,0.03); text-align: center;">
+              <option value="9999999">Max Price</option>
+              <option value="5000">₹5,000</option>
+              <option value="15000">₹15,000</option>
+              <option value="30000">₹30,000+</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+          <h4
+            style="font-size: 12px; font-weight: 800; color: #878787; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 15px;">
+            Premium Brands</h4>
+          <div id="brandFilters" style="display: flex; flex-direction: column; gap: 10px;">
+            <label
+              style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: #444; cursor: pointer; padding: 8px 12px; border-radius: 8px; transition: 0.3s;"
+              onmouseover="this.style.background='#f4f6fb'" onmouseout="this.style.background='transparent'"><input
+                type="checkbox" class="b-filter" value="zebronics" onchange="applyFilters()"
+                style="width: 16px; height: 16px; accent-color: var(--pk-blue); cursor: pointer;"> Zebronics</label>
+            <label
+              style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: #444; cursor: pointer; padding: 8px 12px; border-radius: 8px; transition: 0.3s;"
+              onmouseover="this.style.background='#f4f6fb'" onmouseout="this.style.background='transparent'"><input
+                type="checkbox" class="b-filter" value="apple" onchange="applyFilters()"
+                style="width: 16px; height: 16px; accent-color: var(--pk-blue); cursor: pointer;"> Apple</label>
+            <label
+              style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: #444; cursor: pointer; padding: 8px 12px; border-radius: 8px; transition: 0.3s;"
+              onmouseover="this.style.background='#f4f6fb'" onmouseout="this.style.background='transparent'"><input
+                type="checkbox" class="b-filter" value="samsung" onchange="applyFilters()"
+                style="width: 16px; height: 16px; accent-color: var(--pk-blue); cursor: pointer;"> Samsung</label>
+            <label
+              style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: #444; cursor: pointer; padding: 8px 12px; border-radius: 8px; transition: 0.3s;"
+              onmouseover="this.style.background='#f4f6fb'" onmouseout="this.style.background='transparent'"><input
+                type="checkbox" class="b-filter" value="sony" onchange="applyFilters()"
+                style="width: 16px; height: 16px; accent-color: var(--pk-blue); cursor: pointer;"> Sony</label>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+          <h4
+            style="font-size: 12px; font-weight: 800; color: #878787; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 15px;">
+            User Ratings</h4>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <label
+              style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: #444; cursor: pointer; padding: 8px 12px; border-radius: 8px; border: 1px solid #eee; transition: 0.3s;"
+              onmouseover="this.style.borderColor='var(--pk-blue)'; this.style.background='#f8faff'"
+              onmouseout="this.style.borderColor='#eee'; this.style.background='white'"><input type="checkbox"
+                class="r-filter" value="4" onchange="applyFilters()"
+                style="width: 16px; height: 16px; accent-color: #388e3c; cursor: pointer;"> 4★ & above</label>
+            <label
+              style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: #444; cursor: pointer; padding: 8px 12px; border-radius: 8px; border: 1px solid #eee; transition: 0.3s;"
+              onmouseover="this.style.borderColor='var(--pk-blue)'; this.style.background='#f8faff'"
+              onmouseout="this.style.borderColor='#eee'; this.style.background='white'"><input type="checkbox"
+                class="r-filter" value="3" onchange="applyFilters()"
+                style="width: 16px; height: 16px; accent-color: #388e3c; cursor: pointer;"> 3★ & above</label>
+          </div>
+        </div>
+
+        <!-- PROMO WIDGET TO FILL SPACE -->
+        <div
+          style="background: linear-gradient(135deg, #2a0845, #6441A5); border-radius: 16px; padding: 20px; color: #fff; position: relative; overflow: hidden; box-shadow: 0 10px 20px rgba(100,65,165,0.2); animation: floatPromo 4s ease-in-out infinite;">
+          <div
+            style="position: absolute; right: -20px; top: -20px; font-size: 80px; opacity: 0.1; transform: rotate(15deg);">
+            💎</div>
+          <h4 style="margin: 0; font-family: 'Outfit'; font-size: 18px; font-weight: 800; line-height: 1.2;">Exclusive
+            VIP<br>Access</h4>
+          <p style="font-size: 12px; color: rgba(255,255,255,0.8); margin: 8px 0 15px;">Unlock up to 50% extra discounts
+            today.</p>
+          <button onclick="openQuickView(12)"
+            style="background: #fff; color: #6441A5; width: 100%; border-radius: 10px; padding: 10px; font-weight: 800; font-size: 13px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: 0.3s;"
+            onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">View VIP Deal
+            →</button>
+        </div>
+      </aside>
+
+      <!-- PRODUCT MAIN AREA -->
+      <div class="product-main-area">
+        <div class="prod-hdr" style="border-bottom:none; padding-bottom:0">
+          <div>
+            <h2 class="box-title" id="productsTitle">🏠 Best Sellers</h2>
+            <p class="prod-sub" style="margin-top:4px; color:#878787; font-size:13px;">Handpicked by our experts</p>
+          </div>
+        </div>
+
+        <div class="sort-row">
+          <button class="mobile-filter-btn" onclick="toggleMobileFilters()">✨ Filters</button>
+          <span class="sort-lbl">Sort By</span>
+          <span class="sort-opt active" data-sort="relevance" onclick="sortProds('relevance', this)">Relevance</span>
+          <span class="sort-opt" data-sort="pop" onclick="sortProds('pop', this)">Popularity</span>
+          <span class="sort-opt" data-sort="asc" onclick="sortProds('asc', this)">Price -- Low to High</span>
+          <span class="sort-opt" data-sort="desc" onclick="sortProds('desc', this)">Price -- High to Low</span>
+        </div>
+
+        <div class="product-grid" id="productGrid"></div>
+      </div>
+    </section>
+
+    <!-- TRUST BADGES -->
+    <section class="trust-bar">
+      <div class="trust-item" data-type="delivery">
+        <span class="ti-ico">🚚</span>
+        <div><strong>Free Delivery</strong><span>On orders above ₹499</span></div>
+      </div>
+      <div class="trust-item" data-type="payments">
+        <span class="ti-ico">🔒</span>
+        <div><strong>Secure Payments</strong><span>256-bit SSL encryption</span></div>
+      </div>
+      <div class="trust-item" data-type="returns">
+        <span class="ti-ico">↩️</span>
+        <div><strong>Easy Returns</strong><span>30-day hassle-free</span></div>
+      </div>
+      <div class="trust-item" data-type="authentic">
+        <span class="ti-ico">💎</span>
+        <div><strong>100% Authentic</strong><span>Quality guaranteed</span></div>
+      </div>
+      <div class="trust-item" data-type="support">
+        <span class="ti-ico">🎧</span>
+        <div><strong>24/7 Support</strong><span>Always here to help</span></div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="nl-section" id="newsletter">
+      <div class="nl-inner">
+        <div class="nl-text">
+          <div style="font-size: 44px; margin-bottom: 20px; filter: drop-shadow(0 4px 10px rgba(255,255,255,0.2));">📩</div>
+          <h2>Join the Smartgo Inner Circle</h2>
+          <p>Get <strong>10% OFF</strong> your first order and stay ahead with exclusive drops.</p>
+        </div>
+        <form class="nl-form" id="newsletterForm">
+          <input type="email" id="newsletterEmail" class="nl-inp" placeholder="Enter your email address" required>
+          <button type="submit" class="nl-btn">Subscribe →</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="features">
+    <div class="footer-main">
+      <div class="page-wrap">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-logo">Smartgo</div>
+            <p class="footer-about">India's most loved online shopping destination for electronics, fashion & lifestyle.
+            </p>
+            <div class="footer-socials">
+              <a href="#" class="fsoc">𝕏</a><a href="#" class="fsoc">📷</a><a href="#" class="fsoc">▶</a><a href="#"
+                class="fsoc">in</a>
+            </div>
+          </div>
+          <div>
+            <h4>About</h4>
+            <ul>
+              <li><a href="#">About Smartgo</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Press</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Help</h4>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Track Order</a></li>
+              <li><a href="#">Returns</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Policy</h4>
+            <ul>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Use</a></li>
+              <li><a href="#">Sitemap</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <address>Smartgo Internet Pvt. Ltd.<br>Salem, Tamil Nadu<br>India - 636001<br><br>support@smartgo.in
+            </address>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-btm">
+      <div class="page-wrap">
+        <span>© 2026 Smartgo.com — All rights reserved</span>
+        <div class="pay-icons"><span>💳</span><span>🏦</span><span>📱</span><span>🔒</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-ov" id="cartOverlay"></div>
+  <aside class="cart-side" id="cartSidebar">
+    <div class="cart-hdr">
+      <span class="cart-hdr-title">My Cart <span id="cartCountText">(0 items)</span></span>
+      <button class="cart-cls" id="cartCloseBtn">✕</button>
+    </div>
+    <div class="cart-body" id="cartItems">
+      <div class="cart-empty" id="cartEmpty" style="padding: 40px 20px; text-align: center;">
+        <div style="font-size: 60px; margin-bottom: 15px; opacity: 0.1">🛒</div>
+        <div style="font-weight: 700; color: #212121; font-size: 18px; margin-bottom: 10px;">Your cart is empty!</div>
+        <div style="color: #878787; font-size: 13px; margin-bottom: 25px;">Explore our top categories and find something
+          you love.</div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 25px;">
+          <div class="ct" onclick="closeCart(); setCategory('audio')"
+            style="width: auto; background: #fff; padding: 10px; border: 1px solid #eee; border-radius: 8px;">
+            <div class="ct-ico"
+              style="width: 45px; height: 45px; font-size: 18px; background: #fdf2f2; margin: 0 auto;">🎧</div>
+            <span style="font-size: 11px; margin-top: 5px;">Audio</span>
+          </div>
+          <div class="ct" onclick="closeCart(); setCategory('tech')"
+            style="width: auto; background: #fff; padding: 10px; border: 1px solid #eee; border-radius: 8px;">
+            <div class="ct-ico"
+              style="width: 45px; height: 45px; font-size: 18px; background: #f0f5ff; margin: 0 auto;">💻</div>
+            <span style="font-size: 11px; margin-top: 5px;">Tech</span>
+          </div>
+          <div class="ct" onclick="closeCart(); setCategory('fashion')"
+            style="width: auto; background: #fff; padding: 10px; border: 1px solid #eee; border-radius: 8px;">
+            <div class="ct-ico"
+              style="width: 45px; height: 45px; font-size: 18px; background: #fff9ed; margin: 0 auto;">👕</div>
+            <span style="font-size: 11px; margin-top: 5px;">Fashion</span>
+          </div>
+          <div class="ct" onclick="closeCart(); setCategory('fitness')"
+            style="width: auto; background: #fff; padding: 10px; border: 1px solid #eee; border-radius: 8px;">
+            <div class="ct-ico"
+              style="width: 45px; height: 45px; font-size: 18px; background: #f2fff2; margin: 0 auto;">💪</div>
+            <span style="font-size: 11px; margin-top: 5px;">Fitness</span>
+          </div>
+        </div>
+
+        <button onclick="closeCart(); openOrders(event)"
+          style="background: transparent; border: 1px solid #2874f0; color: #2874f0; padding: 10px 15px; border-radius: 4px; font-weight: 600; cursor: pointer; width: 100%; font-size: 12px;">CHECK
+          PURCHASE HISTORY</button>
+      </div>
+    </div>
+    <div class="cart-foot" id="cartFooter" style="display:none">
+      <div class="cart-sum">
+        <div class="cs-row"><span>Price</span><span id="cartSubtotal">₹0</span></div>
+        <div class="cs-row"><span>Delivery</span><span class="green" id="cartShipping">Free 🎉</span></div>
+        <div class="cs-row cs-total"><span>Total Amount</span><span id="cartTotal">₹0</span></div>
+        <div class="cs-save" id="cartSavings"></div>
+        <button class="place-btn" id="checkoutBtn" onclick="placeOrder()">PLACE ORDER →</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- QUICK VIEW MODAL (Ultra-Premium Redesign) -->
+  <div class="modal-ov" id="modalOverlay" onclick="if(event.target===this) closeModal()"
+    style="padding: 20px; overflow-y: auto;">
+    <div class="qv-modal" id="quickViewModal"
+      style="border-radius: 24px; max-width: 980px; width: 100%; max-height: 90vh; margin: auto; display: grid; grid-template-columns: 1fr 1.2fr; box-shadow: 0 40px 100px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.2); overflow: hidden; background: #fff; position: relative;">
+
+      <!-- HIGH-VISIBILITY CLOSE BUTTON -->
+      <button onclick="closeModal()"
+        style="position: absolute; top: 20px; right: 20px; z-index: 1001; width: 44px; height: 44px; background: rgba(26, 26, 46, 0.9); backdrop-filter: blur(5px); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; border: 2px solid rgba(255,255,255,0.1); cursor: pointer; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.2);"
+        onmouseover="this.style.transform='rotate(90deg) scale(1.1)'; this.style.backgroundColor='#f03e3e';"
+        onmouseout="this.style.transform='rotate(0) scale(1)'; this.style.backgroundColor='rgba(26, 26, 46, 0.9)';">✕</button>
+
+      <!-- LEFT: Image Showcase -->
+      <div class="qv-img-side"
+        style="padding: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(circle at center, #ffffff 0%, #f7f9fd 100%); position: relative; border-right: 1px solid rgba(0,0,0,0.05); height: 100%;">
+        <div id="modalBadge"
+          style="position: absolute; top: 25px; left: 25px; background: linear-gradient(135deg, #1a73e8, #2874f0); color: #fff; padding: 6px 16px; border-radius: 30px; font-weight: 800; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 12px rgba(26,115,232,0.3); z-index: 10;">
+          PREMIUM</div>
+        <div id="modalImgContainer" style="position: relative; display: flex; align-items: center; justify-content: center; width: 100%; transition: 0.5s;">
+          <div id="modalImageOverlay" style="position: absolute; inset: 0; background: transparent; mix-blend-mode: color; border-radius: 20px; transition: 0.5s; z-index: 3; pointer-events: none;"></div>
+          <img src="" alt="" id="modalImage"
+            style="max-height: 400px; max-width: 100%; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1)); transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 2;"
+            onmouseover="this.style.transform='scale(1.05) translateY(-10px)'"
+            onmouseout="this.style.transform='scale(1) translateY(0)'">
+        </div>
+        <button class="qv-wish" id="modalWishBtn"
+          style="margin-top: 30px; border: 2px solid #e0eaf8; padding: 12px 28px; border-radius: 30px; font-weight: 700; font-size: 14px; background: #fff; color: #1a1a2e; transition: 0.3s; cursor: pointer; display: flex; align-items: center; gap: 8px;">🤍
+          Add to Wishlist</button>
+
+        <!-- DYNAMIC PRODUCT TRUST & SALES INFO -->
+        <div id="modalImageDetails" style="margin-top: 25px; width: 100%; text-align: center; border-top: 1px dashed rgba(40,116,240,0.1); padding-top: 20px;">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- RIGHT: Product Details (SCROLLABLE) -->
+      <div class="qv-info"
+        style="padding: 45px; height: 90vh; overflow-y: auto; scrollbar-width: none; background: #fff; display: flex; flex-direction: column;">
+        <div style="display:flex; align-items:center; gap: 12px; margin-bottom: 12px;">
+          <div class="qv-cat" id="modalCategory"
+            style="color: #fff; background: #1a1a2e; padding: 5px 12px; border-radius: 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px;">
+          </div>
+          <div id="modalRating"
+            style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #666;"></div>
+        </div>
+
+        <h2 class="qv-name" id="modalName"
+          style="font-family: 'Outfit', sans-serif; font-size: 30px; font-weight: 900; color: #111; line-height: 1.2; margin-bottom: 20px;">
+        </h2>
+
+        <div
+          style="background: rgba(244, 246, 251, 0.7); border: 1px solid rgba(224, 234, 248, 0.8); border-radius: 16px; padding: 20px; margin-bottom: 25px;">
+          <div style="display:flex; align-items: baseline; gap: 15px;">
+            <div class="qv-price" id="modalPrice" style="font-size: 34px; font-weight: 900; color: #1a73e8;"></div>
+            <div id="modalOriginalPrice"
+              style="font-size: 18px; font-weight: 600; color: #999; text-decoration: line-through;"></div>
+            <div id="modalDiscount"
+              style="background: #e8f5e9; color: #2e7d32; font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 20px; margin-left: auto;">
+            </div>
+          </div>
+          <div id="modalSavings"
+            style="font-size: 12px; font-weight: 700; color: #388e3c; margin-top: 8px; display: none;"></div>
+        </div>
+
+        <!-- LIVE STOCK STATUS -->
+        <div id="modalStockStatus" style="margin-bottom: 25px;"></div>
+
+        <!-- PREMIUM COLOR SELECTION -->
+        <div style="margin-bottom: 30px;">
+          <h4
+            style="font-size: 12px; font-weight: 800; color: #878787; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px;">
+            Premium Colors</h4>
+          <div id="modalColors" style="display: flex; gap: 12px; align-items: center;"></div>
+        </div>
+
+        <!-- KEY ADVANTAGES -->
+        <div style="margin-bottom: 30px;">
+          <h4
+            style="font-size: 12px; font-weight: 800; color: #878787; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px;">
+            Core Advantages</h4>
+          <div id="modalFeatures" style="display: flex; flex-wrap: wrap; gap: 10px;"></div>
+        </div>
+
+        <div style="margin-bottom: 25px;">
+          <h4
+            style="font-size: 14px; font-weight: 800; color: #1a1a2e; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; text-transform: uppercase; letter-spacing: 1px;">
+            <span
+              style="width:18px;height:18px;background:var(--pk-blue);border-radius:5px;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:10px;">✦</span>
+            Description</h4>
+          <p class="qv-desc" id="modalDescription"
+            style="font-size: 15px; color: #555; line-height: 1.6; padding-left: 26px; border-left: 2px solid rgba(26,115,232,0.2);">
+          </p>
+        </div>
+
+        <!-- TECHNICAL HIGHLIGHTS GRID -->
+        <div style="margin-bottom: 30px;">
+          <h4
+            style="font-size: 14px; font-weight: 800; color: #1a1a2e; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; text-transform: uppercase; letter-spacing: 1px;">
+            <span
+              style="width:18px;height:18px;background:#388e3c;border-radius:5px;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:10px;">⚙</span>
+            Special Highlights</h4>
+          <div id="modalSpecsGrid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <!-- Specs injected by JS -->
+          </div>
+        </div>
+
+        <div class="qv-actions"
+          style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 25px; margin-top: auto;">
+          <button class="qv-cart" id="modalAddBtn"
+            style="height: 56px; border-radius: 12px; font-size: 15px; font-weight: 800; border: 2px solid #1a1a2e; background: #fff; color: #1a1a2e; transition: 0.3s; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 10px;"
+            onmouseover="this.style.background='#1a1a2e'; this.style.color='#fff';"
+            onmouseout="this.style.background='#fff'; this.style.color='#1a1a2e';">🛒 Add to Cart</button>
+          <button class="qv-buy" id="modalBuyBtn"
+            style="height: 56px; border-radius: 12px; font-size: 15px; font-weight: 800; background: linear-gradient(135deg, #1a73e8, #0d47a1); color: #fff; border: none; box-shadow: 0 10px 25px rgba(26,115,232,0.4); transition: 0.3s; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 10px;"
+            onmouseover="this.style.transform='translateY(-3px)';" onmouseout="this.style.transform='translateY(0)';">⚡
+            Buy It Now</button>
+        </div>
+
+        <div
+          style="display: flex; justify-content: space-between; padding-top: 20px; border-top: 1px solid rgba(0,0,0,0.05);">
+          <div style="display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: #777;">
+            <span style="font-size: 16px;">🚚</span> Free Delivery above ₹499</div>
+          <div style="display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: #777;">
+            <span style="font-size: 16px;">↩️</span> 30-Day Easy Returns</div>
+          <div style="display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: #777;">
+            <span style="font-size: 16px;">🛡️</span> 1 Year Warranty</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- TRUST INFO MODAL -->
+  <div class="modal-ov" id="trustOverlay">
+    <div class="qv-modal trust-modal">
+      <div class="trust-modal-content">
+        <button class="qv-close" id="trustClose">✕</button>
+        <div id="trustModalBody">
+          <!-- Content injected by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- LOGIN MODAL -->
+  <div class="login-ov" id="loginOverlay">
+    <div class="login-modal">
+      <button class="login-cls" id="loginClose" onclick="closeLogin()">✕</button>
+      <div class="login-left">
+        <h2 style="font-family: 'Outfit', sans-serif; font-size: 38px; font-weight: 800; line-height: 1.1;">Smartgo
+          Explore</h2>
+        <p style="margin-top: 15px; font-size: 17px; opacity: 0.9; line-height: 1.6;">Get access to your Orders,
+          Wishlist and Personalized Recommendations</p>
+
+        <div style="margin-top: auto; padding-bottom: 30px;">
+          <div onclick="showTrustInfo('payments')"
+            style="display:flex; align-items:center; gap:12px; margin-bottom: 15px; background: rgba(255,255,255,0.1); padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); cursor: pointer; transition: 0.3s;"
+            onmouseover="this.style.background='rgba(255,255,255,0.2)'"
+            onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+            <span style="font-size: 20px;">🛡️</span>
+            <span style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">100% Safe
+              & Secure</span>
+          </div>
+          <div onclick="showTrustInfo('delivery')"
+            style="display:flex; align-items:center; gap:12px; background: rgba(255,255,255,0.1); padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); cursor: pointer; transition: 0.3s;"
+            onmouseover="this.style.background='rgba(255,255,255,0.2)'"
+            onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+            <span style="font-size: 20px;">🚚</span>
+            <span style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Fast &
+              Free Delivery</span>
+          </div>
+        </div>
+      </div>
+      <div class="login-right">
+        <div id="otpNotify"
+          style="display:none; background:#f1f8ff; border:1px solid #c8e1ff; padding:15px; border-radius:12px; margin-bottom:20px; font-size:14px; color:#0366d6; line-height:1.5; position:relative">
+          <div id="otpNotifyContent"></div>
+          <button onclick="this.parentElement.style.display='none'"
+            style="display:none">✕</button>
+        </div>
+        <div id="loginScrollArea" style="overflow-y:auto; flex:1; padding-right:5px">
+          <form id="loginForm">
+            <div class="lf-field">
+              <label>Email Address</label>
+              <input type="email" id="loginEmail" class="lf-inp" placeholder="Enter Email Address" required>
+            </div>
+            <div class="lf-field">
+              <label>Full Name</label>
+              <input type="text" id="loginName" class="lf-inp" placeholder="Enter Full Name" required>
+            </div>
+            <div class="lf-field">
+              <label>Secure Password</label>
+              <input type="password" id="loginPass" class="lf-inp" placeholder="Enter Password" required>
+            </div>
+            <div class="lf-field" id="otpField" style="display:none">
+              <label>Enter 6-digit OTP</label>
+              <input type="text" id="loginOtp" class="lf-inp" placeholder="X X X X X X" maxlength="6">
+            </div>
+            <p class="lf-terms">By continuing, you agree to Smartgo's <a href="#">Terms of Use</a> & <a href="#">Privacy
+                Policy</a></p>
+            <button type="submit" class="lf-btn" id="loginSubmitBtn">Continue to Login</button>
+            <button type="button" class="lf-btn" id="verifyOtpBtn" style="display:none; background:#2874f0"
+              onclick="verifyOTP()">Verify OTP Now</button>
+
+            <div class="lf-or" style="margin: 25px 0;"><span>OR SECURE ACCESS</span></div>
+            <button type="button" class="lf-otp" onclick="handleOTP()" id="otpBtn"
+              style="border: 2px solid #e5e7eb; background: #fff; color: #374151; font-weight: 700; border-radius: 12px; padding: 14px;">Receive
+              Login OTP</button>
+          </form>
+        </div>
+        <p class="lf-reg" id="regToggleText" style="padding-top:20px; font-weight: 500;">New to Smartgo? <a href="#"
+            onclick="toggleLoginMode(event)" style="color: #2874f0; font-weight: 700;">Create Account</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTIFICATION MODAL -->
+  <div class="modal-ov" id="notifyOverlay">
+    <div class="qv-modal" style="width: 450px; grid-template-columns: 1fr; padding: 20px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
+        <h3 style="margin:0">Set Notifications</h3>
+        <button class="cart-cls" onclick="closeNotifications()">✕</button>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:15px;">
+        <label style="display:flex; gap:10px; align-items:center; cursor:pointer"><input type="checkbox" checked> Order
+          Updates (SMS)</label>
+        <label style="display:flex; gap:10px; align-items:center; cursor:pointer"><input type="checkbox" checked> New
+          Deals & Promotions (Email)</label>
+        <label style="display:flex; gap:10px; align-items:center; cursor:pointer"><input type="checkbox"> Price Drops on
+          Cart Items</label>
+        <button class="btn-buy" style="margin-top:10px"
+          onclick="closeNotifications(); showToast('Preferences updated!')">Save Settings</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- WISHLIST MODAL -->
+  <div class="modal-ov" id="wishlistOverlay">
+    <div class="qv-modal" style="width: 500px; grid-template-columns: 1fr; padding: 25px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
+        <h3 style="margin:0">My Wishlist ❤️</h3>
+        <button class="cart-cls" onclick="closeWishlist()">✕</button>
+      </div>
+      <div id="wishlistContent" style="max-height: 400px; overflow-y: auto;">
+        <!-- Wishlist items load here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- REWARDS MODAL -->
+  <div class="modal-ov" id="rewardsOverlay">
+    <div class="qv-modal"
+      style="width: 450px; grid-template-columns: 1fr; padding: 25px; background: linear-gradient(135deg, #fff 0%, #fff9ed 100%);">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
+        <h3 style="margin:0">Smartgo Rewards 💰</h3>
+        <button class="cart-cls" onclick="closeRewardsModal()">✕</button>
+      </div>
+      <div style="text-align:center; padding: 20px 0;">
+        <div style="font-size: 14px; color: #878787; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">
+          Current Balance</div>
+        <div style="font-size: 48px; font-weight: 900; color: #ff9f00; margin: 10px 0;">🪙 450</div>
+        <div style="font-size: 13px; color: #388e3c; font-weight: 700;">WORTH ₹450 SAVINGS</div>
+      </div>
+      <div style="background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #ffecb3; margin-top: 10px;">
+        <div style="font-weight: 700; font-size: 14px; margin-bottom: 10px;">Earned from:</div>
+        <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 8px;">
+          <span>Order #1001 Signup</span>
+          <span style="color: #388e3c; font-weight: 700;">+100</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+          <span>Order #1002 CashBack</span>
+          <span style="color: #388e3c; font-weight: 700;">+350</span>
+        </div>
+      </div>
+      <button class="btn-buy" style="width:100%; margin-top: 20px; background: #ff9f00;"
+        onclick="showToast('Coupon applied to next checkout!')">REDEEM NOW</button>
+    </div>
+  </div>
+
+  <!-- EDIT PROFILE MODAL -->
+  <div class="modal-ov" id="profileOverlay">
+    <div class="qv-modal" style="width: 400px; grid-template-columns: 1fr; padding: 25px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
+        <h3 style="margin:0; font-family: 'Outfit', sans-serif;">Rename Profile</h3>
+        <button class="cart-cls" onclick="closeProfile()">✕</button>
+      </div>
+      <div style="margin-bottom: 25px;">
+        <label style="font-size: 13px; color: #878787; display: block; margin-bottom: 8px; font-weight: 600;">Update
+          Full Name</label>
+        <input type="text" id="newNameInput"
+          style="width:100%; padding: 12px; border: 1px solid #e0e0e0; border-radius: 6px; font-size: 15px; outline: none; transition: .2s;"
+          onfocus="this.style.borderColor='#2874f0'" onblur="this.style.borderColor='#e0e0e0'"
+          placeholder="Enter new name">
+      </div>
+      <button class="btn-buy" style="width:100%; height: 45px; font-size: 15px; border-radius: 6px;"
+        onclick="updateProfileName()">RENAME NOW ✅</button>
+    </div>
+  </div>
+
+
+
+  <!-- ORDERS MODAL -->
+  <div class="modal-ov" id="ordersOverlay">
+    <div class="qv-modal"
+      style="width: 800px; grid-template-columns: 1fr; max-height: 85vh; display: flex; flex-direction: column;">
+      <div class="cart-hdr" style="padding: 20px 30px; border-bottom: 2px solid #f0f2f5;">
+        <span class="cart-hdr-title" style="font-size: 20px;">📦 My Purchase History</span>
+        <button class="cart-cls" onclick="closeOrders()">✕</button>
+      </div>
+      <div id="ordersContent" style="flex: 1; overflow-y: auto; padding: 25px; background: #fbfbfc;">
+        <div style="text-align:center; padding: 50px; color: #878787;">Loading your orders...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- COMPARE MODAL -->
+  <div class="modal-ov" id="compareOverlay">
+    <div class="qv-modal" style="width: 900px; grid-template-columns: 1fr; padding: 25px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
+        <h3 style="margin:0">Compare Products ⚖️</h3>
+        <button class="cart-cls" onclick="closeCompare()">✕</button>
+      </div>
+      <div id="compareContent" style="overflow-x: auto;">
+        <!-- Comparison table injected by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAT WIDGET -->
+  <div class="chat-toggle" id="chatToggle"
+    onclick="document.getElementById('chatWindow').classList.toggle('active'); document.getElementById('chatBadge').style.display='none';"
+    title="Chat with Smartgo AI">
+    <span class="chat-ico">💬</span>
+    <span class="chat-badge" id="chatBadge">1</span>
+  </div>
+  <div class="chat-win" id="chatWindow">
+    <div class="chat-hdr" style="background: linear-gradient(135deg, #1a73e8, #1565c0); padding: 16px 20px;">
+      <div style="display:flex; align-items:center; gap:12px">
+        <div class="chat-avatar"
+          style="width:44px; height:44px; background: rgba(255,255,255,0.2); border:2px solid rgba(255,255,255,0.4); font-size:22px; display:flex; align-items:center; justify-content:center; border-radius:50%;">
+          🤖</div>
+        <div>
+          <div style="font-weight:800; font-size:16px; font-family:'Outfit',sans-serif;">Smartgo AI</div>
+          <div style="font-size:11px; opacity:0.85; display:flex; align-items:center; gap:5px;"><span
+              style="width:7px;height:7px;background:#4cff91;border-radius:50%;display:inline-block;animation:pulse 1.5s infinite;"></span>
+            Online · Instant Reply</div>
+        </div>
+      </div>
+      <div style="display: flex; gap: 8px;">
+        <button onclick="resetChat()" title="Refresh Chat"
+          style="background:rgba(255,255,255,0.15); border:none; color:#fff; cursor:pointer; width:32px; height:32px; border-radius:50%; font-size:14px; display:flex; align-items:center; justify-content:center; transition:0.2s;"
+          onmouseover="this.style.background='rgba(255,255,255,0.3)'"
+          onmouseout="this.style.background='rgba(255,255,255,0.15)'">🔄</button>
+        <button onclick="document.getElementById('chatWindow').classList.toggle('active');"
+          style="background:rgba(255,255,255,0.15); border:none; color:#fff; cursor:pointer; width:32px; height:32px; border-radius:50%; font-size:16px; display:flex; align-items:center; justify-content:center; transition:0.2s;"
+          onmouseover="this.style.background='rgba(255,255,255,0.3)'"
+          onmouseout="this.style.background='rgba(255,255,255,0.15)'">✕</button>
+      </div>
+    </div>
+    <div class="chat-body" id="chatBody"
+      style="background: #f4f6fb; padding: 20px 16px; gap: 14px; display: flex; flex-direction: column;">
+      <div class="chat-msg bot"
+        style="background:#fff; border-radius:4px 18px 18px 18px; padding:14px 16px; font-size:14px; max-width:86%; box-shadow:0 2px 8px rgba(0,0,0,0.07); line-height:1.6; color:#1a1a1a;">
+        👋 Hi! I'm <strong>Smartgo AI</strong> — your personal shopping assistant.<br><br>I know everything about our
+        products! Ask me about any item, price, or category. 🛍️
+      </div>
+      <div id="quickReplies" style="display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;">
+        <button class="qr-chip" onclick="sendQuickReply('top products')">🔥 Top Products</button>
+        <button class="qr-chip" onclick="sendQuickReply('headphone')">🎧 Headphones</button>
+        <button class="qr-chip" onclick="sendQuickReply('laptop')">💻 Laptops</button>
+        <button class="qr-chip" onclick="sendQuickReply('offer discount')">🏷️ Offers</button>
+        <button class="qr-chip" onclick="sendQuickReply('mobile')">📱 Mobiles</button>
+        <button class="qr-chip" onclick="sendQuickReply('smartwatch')">⌚ Watches</button>
+      </div>
+    </div>
+    <div class="chat-foot"
+      style="background: #fff; border-top: 1px solid #eef0f5; padding: 12px 14px; display:flex; align-items:center; gap:10px;">
+      <input type="text" id="chatInput" placeholder="Ask about any product..."
+        style="flex:1; border: 1.5px solid #e0e7f5; padding: 11px 16px; border-radius: 25px; outline:none; font-size:14px; background:#f8f9fd; transition: border 0.2s;"
+        onfocus="this.style.borderColor='#1a73e8'" onblur="this.style.borderColor='#e0e7f5'"
+        onkeyup="if(event.key==='Enter') sendChat()">
+      <button onclick="sendChat()" id="chatSendBtn"
+        style="background: linear-gradient(135deg, #1a73e8, #1565c0); border:none; color:#fff; width:42px; height:42px; border-radius:50%; font-size:18px; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow: 0 4px 12px rgba(26,115,232,0.35); transition:0.2s; flex-shrink:0;"
+        onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">➤</button>
+    </div>
+  </div>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    title="Back to Top">↑</button>
+
+  <!-- PROMO POPUP (shown once per session) -->
+  <div class="promo-popup-ov" id="promoPopupOv">
+    <div class="promo-popup">
+      <button class="promo-popup-cls" onclick="closePromoPopup()">✕</button>
+      <div class="pp-left">
+        <div style="font-size:60px; margin-bottom:15px;">🎁</div>
+        <h2 style="font-size:32px; font-weight:900; line-height:1.1; margin-bottom:10px;">SMART10</h2>
+        <p style="font-size:15px; opacity:0.85; line-height:1.5;">Use this code at checkout for <strong>10% OFF</strong>
+          your very first order on Smartgo!</p>
+      </div>
+      <div class="pp-right">
+        <h3 style="font-size:20px; font-weight:800; margin-bottom:12px;">🔥 Limited Time Offer</h3>
+        <p style="font-size:14px; color:#878787; margin-bottom:25px;">Subscribe to claim your exclusive discount + get
+          early sale access every week.</p>
+        <input type="email" id="ppEmail" class="pp-input" placeholder="Enter your email">
+        <button class="pp-btn" onclick="claimPromo()">CLAIM MY DISCOUNT →</button>
+        <p style="font-size:11px; color:#bbb; margin-top:15px; text-align:center;">No spam. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="script.js?v=3"></script>
+</body>
+
+</html>
